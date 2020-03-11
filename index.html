@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ornelux : Dessinons</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">  
+</head>
+<body>
+    
+    <div class="container-fluid my-3" >
+        <h2 class="alert bg-info text-center text-white" role="alert">Dessinons des figures géométriques planes</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Exemple : dessine un cercle!" aria-label="Que voulez-vous dessiner ?" aria-describedby="button-send" id="input-send" required>
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary" type="button" id="button-send">Lancer</button>
+            </div>
+        </div>
+        
+        <div class="input-group mb-3">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary text-white" id="addon-wrapping">Ornelux</span>
+                </div> 
+                <input type="text" class="form-control" placeholder="Parler ou saisir une figure géométrique simple (au dessus)." aria-label="Username" readonly aria-describedby="addon-wrapping" id="ornelux">
+            </div>
+          </div>
+          
+          <div class="border border-primary rounded">
+              <svg class="img-fluid" width = "640px" height="480px">
+                <!-- les figures s'afficherons ici -->
+              </svg>
+          </div>
+    </div>
+    
+    <!--Bootstrap-->
+    <script src="jquery/jquery-3.4.1.js"></script>
+    <script src="popper/popper.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <!--D3-->
+    <script src="d3/d3.v5.js"></script>
+    <!--annyang and speechkitt-->
+    <!--<script src="annyang/annyang.js"></script>-->
+    <script src="speechkitt/speechkitt.js"></script>
+    <!--Mon script-->  
+    <script src="js/index.js">
+    </script>
+</body>
+</html>
