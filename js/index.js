@@ -2,6 +2,7 @@
 var requete = 0;
 var figuSelect = 0;
 var message = 0;
+var remplissage = 'grey';
 var svg = d3.select("svg");
 var figures = ["cercle", "triangle rectangle", "triangle isocèle", "triangle équilatéral", "triangle","quadrilatère", "trapèze", "parallélogramme", "rectangle", "losange", "carré", "pentagone", "hexagone", "heptagone", "octogone", "ennéagone", "décagone"];
 
@@ -18,7 +19,7 @@ function afficheMessage(ind, bgClasse, textClasse, messagVal) { //affiche des me
     message ="";
 }
 //Nouvelle fonction de recherche à terminer
-function rechercheStandard(tableaux, donnee) {
+function rechercheCouleur(tableaux, donnee) {
     var retour;
     var indic = -1;
     tableaux.forEach(function(valeur, index) {        
@@ -286,6 +287,14 @@ function animer (contour, rempli) {
     .transition(anim).style("fill", rempli);
 }
 
+//réinitialisation app
+function reinit () {
+    remplissage = 'grey';
+    message = 0;
+    figuSelect = 0;
+    requete = 0;
+}
+
 //fonction principale
 //module speechkitt
 // Init the browser's own Speech Recognition
@@ -319,6 +328,8 @@ recognition.addEventListener('result', function(ev) {
     recherche();
     afficheMessage("input-send", "bg-secondary", "text-white", requete);
     dessiner();
+    remplissage = couleurEn[rechercheCouleur(couleurFr, requete)];
+    animer("grey", remplissage);
     //animer();
 });
 //gestion des erreurs
@@ -352,8 +363,7 @@ boutton.addEventListener("click", function() {
         afficheMessage("ornelux", "bg-white", "text-danger", message);
     }
     dessiner();
-    animer("maroon", "gold");
+    remplissage = couleurEn[rechercheCouleur(couleurFr, requete)];
+    //console.log(remplissage);
+    animer("grey", remplissage);
 });
-
-console.log(couleurEn[rechercheStandard(couleurFr, "mon blanc eu vert text")]);
-console.log(figures[rechercheStandard(figures, "mon triangle isocèle cercle blanc eu vert text")]);
