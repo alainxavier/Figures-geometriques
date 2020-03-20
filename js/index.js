@@ -1,8 +1,9 @@
 //initialisation variables
 var requete = 0;
-var figuSelect = 0;
+var figuSelect;
 var message = 0;
-var remplissage = 'grey';
+var remplissage;
+var indexCouleur;
 var svg = d3.select("svg");
 var figures = ["cercle", "triangle rectangle", "triangle isocèle", "triangle équilatéral", "triangle","quadrilatère", "trapèze", "parallélogramme", "rectangle", "losange", "carré", "pentagone", "hexagone", "heptagone", "octogone", "ennéagone", "décagone"];
 
@@ -42,8 +43,8 @@ function recherche() { //recherche une figure géométrique
             afficheMessage("ornelux", "bg-warning", "text-danger", "Veuillez saisir une figure géométrique correcte");
         } else {
             figuSelect = figures[i];
-            message = "Je dessine un " + figuSelect + ", Patientez...";
-            afficheMessage("ornelux", "bg-success", "text-white", message);
+            //message = "Je dessine un " + figuSelect + " , Patientez...";
+            //afficheMessage("ornelux", "bg-success", "text-white", message);
         }
         i++;
     }
@@ -289,7 +290,7 @@ function animer (contour, rempli) {
 
 //réinitialisation app
 function reinit () {
-    remplissage = 'grey';
+    remplissage = 'white';
     message = 0;
     figuSelect = 0;
     requete = 0;
@@ -313,7 +314,7 @@ recognition.addEventListener('start', SpeechKITT.onStart);
 recognition.addEventListener('end', SpeechKITT.onEnd);
 
 // Define a stylesheet for KITT to use
-SpeechKITT.setStylesheet('speechkitt/themes/flat-emerald.css');
+SpeechKITT.setStylesheet('https://cdnjs.cloudflare.com/ajax/libs/SpeechKITT/1.0.0/themes/flat-emerald.css');
 
 // Render KITT's interface
 SpeechKITT.vroom(); // SpeechKITT.render() does the same thing, but isn't as much fun!
@@ -328,8 +329,13 @@ recognition.addEventListener('result', function(ev) {
     recherche();
     afficheMessage("input-send", "bg-secondary", "text-white", requete);
     dessiner();
-    remplissage = couleurEn[rechercheCouleur(couleurFr, requete)];
-    animer("grey", remplissage);
+    indexCouleur = rechercheCouleur(couleurFr, requete)
+    remplissage = couleurEn[indexCouleur];
+    afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez...");
+    if (!remplissage) {
+      remplissage = "white";
+    }
+    animer("black", remplissage);
     //animer();
 });
 //gestion des erreurs
@@ -362,8 +368,17 @@ boutton.addEventListener("click", function() {
         message = "Vous n'avez rien saisie !";
         afficheMessage("ornelux", "bg-white", "text-danger", message);
     }
-    dessiner();
-    remplissage = couleurEn[rechercheCouleur(couleurFr, requete)];
+    indexCouleur = rechercheCouleur(couleurFr, requete);
+    remplissage = couleurEn[indexCouleur];
+    if (!remplissage) {
+        remplissage = "white";
+      } else {}
+
+    if(figuSelect) {
+        dessiner();
+        afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez...");
+    } else {}
     //console.log(remplissage);
-    animer("grey", remplissage);
+    animer("black", remplissage);
+    //console.log(remplissage);
 });
