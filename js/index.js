@@ -2,7 +2,6 @@
 var requete = 0;
 var figuSelect;
 var message = 0;
-var remplissage;
 var indexCouleur;
 var svg = d3.select("svg");
 var figures = ["cercle", "triangle rectangle", "triangle isocèle", "triangle équilatéral", "triangle","quadrilatère", "trapèze", "parallélogramme", "rectangle", "losange", "carré", "pentagone", "hexagone", "heptagone", "octogone", "ennéagone", "décagone"];
@@ -290,7 +289,6 @@ function animer (contour, rempli) {
 
 //réinitialisation app
 function reinit () {
-    remplissage = 'white';
     message = 0;
     figuSelect = 0;
     requete = 0;
@@ -329,14 +327,17 @@ recognition.addEventListener('result', function(ev) {
     recherche();
     afficheMessage("input-send", "bg-secondary", "text-white", requete);
     dessiner();
-    indexCouleur = rechercheCouleur(couleurFr, requete)
-    remplissage = couleurEn[indexCouleur];
-    afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez...");
-    if (!remplissage) {
-      remplissage = "white";
-    }
-    animer("black", remplissage);
-    //animer();
+    indexCouleur = rechercheCouleur(couleurFr, requete);//identifie la couleur demandée
+    console.log(indexCouleur);
+    if (!indexCouleur) {
+        indexCouleur = 6;
+      } else {}
+
+    if(figuSelect) {
+        dessiner();
+        afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez...");
+    } else {}
+    animer("black", couleurEn[indexCouleur]);
 });
 //gestion des erreurs
 recognition.onerror = function(ev) {
@@ -360,25 +361,22 @@ recognition.onerror = function(ev) {
 // depart
 var boutton = document.getElementById("button-send"); 
 boutton.addEventListener("click", function() { 
-    requete = document.getElementById("input-send").value;//appuie sur le bouton lancer
+    requete = document.getElementById("input-send").value;//appuie du bouton lancer
     if(requete) { //s'il y eu saisie
         recherche();
     }
     else {
-        message = "Vous n'avez rien saisie !";
-        afficheMessage("ornelux", "bg-white", "text-danger", message);
+        afficheMessage("ornelux", "bg-white", "text-danger", "Vous n'avez rien saisie !");
     }
-    indexCouleur = rechercheCouleur(couleurFr, requete);
-    remplissage = couleurEn[indexCouleur];
-    if (!remplissage) {
-        remplissage = "white";
+    indexCouleur = rechercheCouleur(couleurFr, requete);//identifie la couleur demandée
+    console.log(indexCouleur);
+    if (!indexCouleur) {
+        indexCouleur = 6;
       } else {}
 
     if(figuSelect) {
         dessiner();
         afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez...");
     } else {}
-    //console.log(remplissage);
-    animer("black", remplissage);
-    //console.log(remplissage);
+    animer("black", couleurEn[indexCouleur]);
 });
