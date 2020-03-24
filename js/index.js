@@ -19,10 +19,6 @@ function afficheMessage(ind, bgClasse, textClasse, messagVal) { //affiche des me
     message ="";
 }
 
-function animerText (mafonction) {
-    var animId = setInterval(mafonction, 10);
-}
-
 //Nouvelle fonction de recherche à terminer
 function rechercheCouleur(tableaux, donnee) {
     var retour;
@@ -381,8 +377,7 @@ boutton.addEventListener("click", function() {
 
     if(figuSelect) {
         dessiner();
-        animerText(afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez..."));
-        //afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez...");
+        afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez...");
     } else {}
     animer("black", couleurEn[indexCouleur]);
 });
