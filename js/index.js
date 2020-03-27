@@ -370,7 +370,6 @@ boutton.addEventListener("click", function() {
         afficheMessage("ornelux", "bg-white", "text-danger", "Vous n'avez rien saisie !");
     }
     indexCouleur = rechercheCouleur(couleurFr, requete);//identifie la couleur demandée
-    console.log(indexCouleur);
     if (!indexCouleur) {
         indexCouleur = 6;
       } else {}
