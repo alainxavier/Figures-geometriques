@@ -55,13 +55,13 @@ function dessiner() {
     svg.selectAll("*").remove();
     switch(figuSelect) {
         case "carré":
-            carre(10, 10, 400, "white", "white", "2px");
+            carre(10, 10, 250, "white", "white", "2px");
             break;
         case "cercle":
-            cercle(200, 200, 190, "white", "white", "2px");
+            cercle(160, 160, 140, "white", "white", "2px");
             break;
         case "rectangle":
-            rectangle(10, 10, 400, 200, "white", "white", "2px");
+            rectangle(10, 10, 260, 160, "white", "white", "2px");
             break;
         case "triangle":
             triangle ("white", "white", "2px");
@@ -144,7 +144,7 @@ function rectangle(x, y, larg, haut, couleur, contour, epaisseur) {
 //fonction de création du triangle
 function triangle(couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "32,379 132,61 378,379")
+    .attr("points", "21.384,255.035 103.857,17.225 306.74,255.035")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -154,7 +154,7 @@ function triangle(couleur, contour, epaisseur) {
 //fonction de création du triangle rectangle
 function triangleRectangle(couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "32,379 32,21 378,379")
+    .attr("points", "28.559,259.607 295.536,24.299 295.536,259.607")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -174,7 +174,7 @@ function triangleIsocele(couleur, contour, epaisseur) {
 //fonction de création du triangle Equilatéral
 function triangleEquilateral(couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "18.349,317.5 191.554,17.5 364.759,317.5")
+    .attr("points", "19.045,278.783 156.221,22.217 293.395,278.783")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -184,7 +184,7 @@ function triangleEquilateral(couleur, contour, epaisseur) {
 //fonction de création du pentagone
 function pentagone (couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "85.755,375.5 13.101,151.736 203.312,13.461 393.523,151.775 320.869,375.5")
+    .attr("points", "74.166,291.5 19.675,123.554 162.333,19.787 304.992,123.614 250.501,291.5")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -194,7 +194,7 @@ function pentagone (couleur, contour, epaisseur) {
 //fonction de création du hexagone
 function hexagone (couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "114.318,365.5 14.318,192 114.318,18.5 314.318,18.5 414.318,192 314.318,365.5")
+    .attr("points", "93.667,291.5 18.667,161.5 93.667,31.5 243.666,31.5 318.666,161.5 243.666,291.5")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -204,7 +204,7 @@ function hexagone (couleur, contour, epaisseur) {
 //fonction de création du heptagone
 function heptagone (couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "130.713,397.5 22.505,261.632 61.124,92.341 217.49,16.994 373.856,92.274 412.476,261.643 304.268,397.5")
+    .attr("points", "100.917,303.5 19.761,201.555 48.725,74.565 166,18.044 283.274,74.499 312.239,201.566 231.082,303.5")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -214,7 +214,7 @@ function heptagone (couleur, contour, epaisseur) {
 //fonction de création du octogone
 function octogone (couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "121.418,384.5 13.5,275.944 13.5,122.871 121.418,14.5 274.492,14.5 382.5,122.871 382.5,275.944 274.492,384.5")
+    .attr("points", "103.598,305.5 22.5,224.736 22.5,109.931 103.598,28.5 218.402,28.5 299.5,109.931 299.5,224.736 218.402,305.5")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -224,7 +224,7 @@ function octogone (couleur, contour, epaisseur) {
 //fonction de création du ennéagone
 function enneagone (couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "139.73,400.5 34.929,312.481 11.172,177.712 79.576,59.212 208.134,12.411 336.691,59.197 405.096,177.674 381.339,312.482 276.538,400.5")
+    .attr("points", "115.03,310.5 36.43,244.44 18.612,143.339 69.916,54.453 166.333,19.347 262.752,54.434 314.055,143.29 296.237,244.442 217.637,310.5")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -233,7 +233,7 @@ function enneagone (couleur, contour, epaisseur) {
 //fonction de création du trapèze
 function trapeze (couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "84,14 12,230 445,230 373,14")
+    .attr("points", "68.523,32.3 19.539,157.702 314.129,157.702 265.143,32.3")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -243,7 +243,7 @@ function trapeze (couleur, contour, epaisseur) {
 //fonction de création du parallélogramme
 function parallelogramme (couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "84,10 12,227 373,227 445,10")
+    .attr("points", "66.207,39.849 17.23,204.484 262.793,204.484 311.771,39.849")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -252,7 +252,7 @@ function parallelogramme (couleur, contour, epaisseur) {
 //fonction de création du quadrilatère
 function quadrilatere (couleur, contour, epaisseur) {
     svg.append("polygon")
-    .attr("points", "84,10 12,227 373,227 145,140")
+    .attr("points", "77.5,27.22 17.997,232.447 316.337,232.447 127.912,150.167")
     .attr("stroke-miterlimit", 10)
     .style("fill", couleur)
     .style("stroke", contour)
@@ -264,7 +264,7 @@ function losange (couleur, contour, epaisseur) {
     svg.append("rect")
     .attr("x", 65.5)
     .attr("y", "65.5")
-    .attr("transform", "matrix(0.7507 0.6607 -0.6607 0.7507 147.9591 -69.075)")
+    .attr("transform", "matrix(0.7507 0.6607 -0.6607 0.7507 148.3976 -66.8957)")
     .attr("width", 200)
     .attr("height", 200)
     .attr("stroke-miterlimit", 10)
@@ -329,7 +329,6 @@ recognition.addEventListener('result', function(ev) {
     afficheMessage("input-send", "bg-secondary", "text-white", requete);
     dessiner();
     indexCouleur = rechercheCouleur(couleurFr, requete);//identifie la couleur demandée
-    console.log(indexCouleur);
     if (!indexCouleur) {
         indexCouleur = 6;
       } else {}
