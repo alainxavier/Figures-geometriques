@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ornelux : Dessinons</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">  
+</head>
+<body>
+  <div class="container">
+    <h1>Cette petite application dessine les figures géométriques planes. Elle fonctionne par commande vocale ou écrite (au cas ou vous ne disposer pas d'un microphone). Il est possible de definir la couleur de la figure à dessiner.</h1>
+
+  </div>
+    <div class="container-md my-3" >
+      <h2 class="alert bg-info text-center text-white" role="alert">Dessinons des figures géométriques planes</h2>
+      <div class="row">
+        <div class="col-7"><!-- Côté gauche -->
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Exemple : dessine un cercle!" aria-label="Que voulez-vous dessiner ?" aria-describedby="button-send" id="input-send" required>
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary" type="button" id="button-send">Lancer</button>
+            </div>
+        </div>
+        
+        <div class="input-group mb-3">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary text-white" id="addon-wrapping">Ornelux</span>
+                </div> 
+                <input type="text" class="form-control" placeholder="Parler ou saisir une figure géométrique simple (au dessus)." aria-label="Username" readonly aria-describedby="addon-wrapping" id="ornelux">
+            </div>
+        </div>
+          
+        <div class="border border-primary rounded">
+              <svg class="img-fluid" width = "640px" height="480px">
+                <!-- les figures s'afficherons ici -->
+              </svg>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="container border border-danger">
+          <h3 class="text-center">GUIDE D'UTILISATION</h3>
+          <p class="p-3 mb-2 bg-light text-dark">Cette petite application dessine les figures géométriques planes. Elle fonctionne par commande vocale ou écrite (au cas ou vous ne disposer pas d'un microphone). Il est possible de definir la couleur de la figure à dessiner.<br>Par Exemple : "<span class="text-success font-weight-bold">un carré vert</span>"</p>  
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th class="align-middle text-center table-info">Figures disponibles</th>
+                <th class="align-middle text-center table-warning">Couleurs disponibles</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="table-info">
+                  <ol>
+                    <li>cercle</li>
+                    <li>triangle rectangle</li>
+                    <li>triangle isocèle</li>
+                    <li>triangle</li>
+                    <li>triangle équilatéral</li>
+                    <li>quadrilatère</li>
+                    <li>trapèze</li>
+                    <li>parallélogramme</li>
+                    <li>rectangle</li>
+                    <li>losange</li>
+                    <li>carré</li>
+                    <li>pentagone</li>
+                    <li>hexagone</li>
+                    <li>heptagone</li>
+                    <li>octogone</li>
+                    <li>ennéagone</li>
+                    <li>décagone</li>
+                  </ol>
+                </th>
+                <th class="table-warning">
+                  <ol>
+                    <li>noir</li>
+                    <li>gris</li>
+                    <li>rose</li>
+                    <li>vert</li>
+                    <li>cyan</li>
+                    <li>bleu</li>
+                    <li>blanc</li>
+                    <li>rouge</li>
+                    <li>jaune</li>
+                    <li>violet</li>
+                    <li>orangé</li>
+                    <li>orange</li>
+                    <li>pourpre</li>
+                    <li>turquoise</li>
+                  </ol>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>      
+      </div>
+    </div>
+  </div>
+    
+    <!--Bootstrap-->
+    <script src="jquery/jquery-3.4.1.js"></script>
+    <script src="popper/popper.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <!--D3-->
+    <script src="d3/d3.v5.js"></script>
+    <!--annyang and speechkitt-->
+    <!--<script src="annyang/annyang.js"></script>-->
+    <script src="speechkitt/speechkitt.js"></script>
+    <!--Mon script-->  
+    <script src="js/index.js">
+    </script>
+</body>
+</html>

@@ -380,3 +380,6 @@ boutton.addEventListener("click", function() {
     } else {}
     animer("black", couleurEn[indexCouleur]);
 });
+$(function () {
+    $('[data-toggle="popover"]').popover()
+  })
