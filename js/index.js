@@ -296,67 +296,76 @@ function reinit () {
 }
 
 //fonction principale
-//module speechkitt
-// Init the browser's own Speech Recognition
-var recognition = new webkitSpeechRecognition();
+//Demarrage popover
+$(function () {
+    $('[data-toggle="popover"]').popover()
+  });
 
-// Tell KITT the command to use to start listening
-SpeechKITT.setStartCommand(function() {recognition.start()});
+  function reconnaissanceVocale() {
+    //module speechkitt
+    // Init the browser's own Speech Recognition
+    var recognition = new webkitSpeechRecognition();
+    // Tell KITT the command to use to start listening
+    SpeechKITT.setStartCommand(function() {recognition.start()});
 
-// Tell KITT the command to use to abort listening
-SpeechKITT.setAbortCommand(function() {recognition.abort()});
+    // Tell KITT the command to use to abort listening
+    SpeechKITT.setAbortCommand(function() {recognition.abort()});
 
-// Register KITT's recognition start event with the browser's Speech Recognition
-recognition.addEventListener('start', SpeechKITT.onStart);
+    // Register KITT's recognition start event with the browser's Speech Recognition
+    recognition.addEventListener('start', SpeechKITT.onStart);
 
-// Register KITT's recognition end event with the browser's Speech Recognition
-recognition.addEventListener('end', SpeechKITT.onEnd);
+    // Register KITT's recognition end event with the browser's Speech Recognition
+    recognition.addEventListener('end', SpeechKITT.onEnd);
 
-// Define a stylesheet for KITT to use
-SpeechKITT.setStylesheet('speechkitt/themes/flat-emerald.css');
+    // Define a stylesheet for KITT to use
+    SpeechKITT.setStylesheet('speechkitt/themes/flat-emerald.css');
 
-// Render KITT's interface
-SpeechKITT.vroom(); // SpeechKITT.render() does the same thing, but isn't as much fun!
-//Mon ajout personnel
-recognition.lang = "fr-FR";
-SpeechKITT.setInstructionsText('Demander une figure géométrique plane !');
-recognition.addEventListener('start', SpeechKITT.onStart);
+    // Render KITT's interface
+    SpeechKITT.vroom(); // SpeechKITT.render() does the same thing, but isn't as much fun!
+    //Mon ajout personnel
+    recognition.lang = "fr-FR";
+    SpeechKITT.setInstructionsText('Demander une figure géométrique plane !');
+    recognition.addEventListener('start', SpeechKITT.onStart);
 
-recognition.addEventListener('result', function(ev) {
-    SpeechKITT.setRecognizedSentence(ev.results[ev.resultIndex][0].transcript);
-    requete = SpeechKITT.getLastRecognizedSentence();
-    recherche();
-    afficheMessage("input-send", "bg-secondary", "text-white", requete);
-    dessiner();
-    indexCouleur = rechercheCouleur(couleurFr, requete);//identifie la couleur demandée
-    if (!indexCouleur) {
-        indexCouleur = 6;
-      } else {}
-
-    if(figuSelect) {
+    recognition.addEventListener('result', function(ev) {
+        SpeechKITT.setRecognizedSentence(ev.results[ev.resultIndex][0].transcript);
+        requete = SpeechKITT.getLastRecognizedSentence();
+        recherche();
+        afficheMessage("input-send", "bg-secondary", "text-white", requete);
         dessiner();
-        afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez...");
-    } else {}
-    animer("black", couleurEn[indexCouleur]);
-});
-//gestion des erreurs
-recognition.onerror = function(ev) {
-    switch (event.error) {
-        case 'network':
-            message = "Impossible ! Vérifier votre connexion internet...";
-            break;
-        case 'no-speech':
-            message = "Auncun mot n'a été détecté!";
-            break;
-        case 'audio-capture':
-            message = "Echec de la capture audio";
-            break;
-        case 'not-allowed':
-            message = "Les captures audios ne sont pas autorisées!";
-            break;
-        default:
-    }
-    afficheMessage("ornelux", "bg-danger", "text-white", message);
+        indexCouleur = rechercheCouleur(couleurFr, requete);//identifie la couleur demandée
+        if (!indexCouleur) {
+            indexCouleur = 6;
+        } else {}
+
+        if(figuSelect) {
+            dessiner();
+            afficheMessage("ornelux", "bg-success", "text-white", "Je dessine un " + figuSelect + " " + couleurFr[indexCouleur] +" , Patientez...");
+        } else {}
+        animer("black", couleurEn[indexCouleur]);
+    });
+    //gestion des erreurs
+    recognition.onerror = function(ev) {
+        switch (event.error) {
+            case 'network':
+                message = "Impossible ! Vérifier votre connexion internet...";
+                break;
+            case 'no-speech':
+                message = "Auncun mot n'a été détecté!";
+                break;
+            case 'audio-capture':
+                message = "Echec de la capture audio";
+                break;
+            case 'not-allowed':
+                message = "Les captures audios ne sont pas autorisées!";
+                break;
+            case 'service-not-allowed':
+                message = "Service non supporter";
+                break;
+            default:
+        }
+        afficheMessage("ornelux", "bg-danger", "text-white", message);
+}
 }
 // depart
 var boutton = document.getElementById("button-send"); 
@@ -379,6 +388,25 @@ boutton.addEventListener("click", function() {
     } else {}
     animer("black", couleurEn[indexCouleur]);
 });
-$(function () {
-    $('[data-toggle="popover"]').popover()
-  })
+
+try {
+    var recognition = new webkitSpeechRecognition();
+  }
+catch(err) {
+    if(err.name && err.message) {
+        var mAlert = document.getElementById("m-alert");
+        var mBouton = document.createElement("button");
+        mBouton.className = "btn btn-lg btn-danger";
+        mBouton.setAttribute("type", "button");
+        mBouton.setAttribute("data-container", "body");
+        mBouton.setAttribute("data-toggle", "popover");
+        mBouton.setAttribute("data-placement", "bottom");
+        mBouton.setAttribute("data-content", "Ce navigateur ne support par la reconnaissance vocale! Nous vous recommandons le navigateur Google Chrome afin de pouvoir profiter pleinement de la fonction de reconnaissance vocale.");
+        mBouton.textContent = "ATTENTION! CLIQUEZ-ICI";
+        mAlert.append(mBouton);
+    }
+    
+  }
+  finally {
+      reconnaissanceVocale();
+  }
