@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ornelux : Dessinons</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+  <div class="container-fluid my-3">
+    <h3 class="alert bg-info text-center text-white" role="alert">Dessinons des figures géométriques planes</h3>
+    <div id="m-alert" class="mb-3 text-center"></div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Exemple : dessine un cercle!" aria-label="Que voulez-vous dessiner ?" aria-describedby="button-send" id="input-send" required>
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" type="button" id="button-send">Lancer</button>
+      </div>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group flex-nowrap">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-primary text-white" id="addon-wrapping">Ornelux</span>
+          </div> 
+          <input type="text" class="form-control" placeholder="Parler ou saisir une figure géométrique simple (au dessus)." aria-label="Username" readonly aria-describedby="addon-wrapping" id="ornelux">
+      </div>
+    </div>
+    <div class="border border-primary rounded">
+      <svg class="img-fluid" width = "360px" height="360px">
+        <!-- les figures s'afficherons ici -->
+      </svg>
+    </div>
+    <div class="mt-2 text-center"><button type="button" class="btn btn-lg btn-warning" data-toggle="popover" data-placement="top" title="GUIDE D'UTILISATION" data-content="Cette petite application dessine les figures géométriques planes. Elle fonctionne par commande vocale ou écrite. Il est possible de definir la couleur de la figure à dessiner. Par Exemple : Dessine un carré vert. Liste des figures disponibles : cercle, triangle rectangle, triangle isocèle, triangle, triangle équilatéral, quadrilatère, trapèze, parallélogramme, rectangle, losange, carré, pentagone, hexagone, heptagone, octogone, ennéagone. Liste des couleurs disponibles : noir, gris, rose, vert, cyan, bleu, blanc, rouge, jaune, violet, orangé, orange, pourpre, turquoise.">GUIDE D'UTILISATION</button></div>
+  </div>
+  <div class="card text-center align-middle">
+    <div class="card-header">
+      © 2020 | All rights reserved | <span style="font-size: 1.5em"><a href="https://github.com/alainxavier"><i class="fab fa-github-square" ></i></a> <a href="https://twitter.com/mekkaddish"><i class="fab fa-twitter-square"></i></a> <a href="https://www.facebook.com/kalainxavier"><i class="fab fa-facebook-square"></i></a></span>
+    </div>
+  </div>
+
+    <!--Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--D3-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!--annyang and speechkitt-->
+    <!--<script src="annyang/annyang.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/1.0.0/speechkitt.min.js"></script>
+        <!--Mon script-->  
+    <script src="js/index.js">
+    </script>
+</body>
+</html>

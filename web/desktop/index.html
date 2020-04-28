@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ornelux : Dessinons</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">  
+</head>
+<body>
+    <div class="container-fluid my-3" >
+      <h2 class="alert bg-info text-center text-white" role="alert">Dessinons des figures géométriques planes</h2>
+      <div class="row">
+        <div class="col-7"><!-- Côté gauche -->
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Exemple : dessine un cercle!" aria-label="Que voulez-vous dessiner ?" aria-describedby="button-send" id="input-send" required>
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary" type="button" id="button-send">Lancer</button>
+            </div>
+        </div>
+        
+        <div class="input-group mb-3">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary text-white" id="addon-wrapping">Ornelux</span>
+                </div> 
+                <input type="text" class="form-control" placeholder="Parler ou saisir une figure géométrique simple (au dessus)." aria-label="Username" readonly aria-describedby="addon-wrapping" id="ornelux">
+            </div>
+        </div>
+          
+        <div class="border border-primary rounded">
+              <svg class="img-fluid" width = "640px" height="480px">
+                <!-- les figures s'afficherons ici -->
+              </svg>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="container">
+          <h3 class="text-center">GUIDE D'UTILISATION</h3>
+          <p class="p-3 mb-2 bg-light text-dark">Cette petite application dessine les figures géométriques planes. Elle fonctionne par commande vocale ou écrite (au cas ou vous ne disposer pas d'un microphone). Il est possible de definir la couleur de la figure à dessiner.<br>Par Exemple : "<span class="text-success font-weight-bold">un carré vert</span>"</p>  
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th class="align-middle text-center table-info">Figures disponibles</th>
+                <th class="align-middle text-center table-warning">Couleurs disponibles</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="table-info">
+                  <ol>
+                    <li>cercle</li>
+                    <li>triangle rectangle</li>
+                    <li>triangle isocèle</li>
+                    <li>triangle</li>
+                    <li>triangle équilatéral</li>
+                    <li>quadrilatère</li>
+                    <li>trapèze</li>
+                    <li>parallélogramme</li>
+                    <li>rectangle</li>
+                    <li>losange</li>
+                    <li>carré</li>
+                    <li>pentagone</li>
+                    <li>hexagone</li>
+                    <li>heptagone</li>
+                    <li>octogone</li>
+                    <li>ennéagone</li>
+                    <li>décagone</li>
+                  </ol>
+                </th>
+                <th class="table-warning">
+                  <ol>
+                    <li>noir</li>
+                    <li>gris</li>
+                    <li>rose</li>
+                    <li>vert</li>
+                    <li>cyan</li>
+                    <li>bleu</li>
+                    <li>blanc</li>
+                    <li>rouge</li>
+                    <li>jaune</li>
+                    <li>violet</li>
+                    <li>orangé</li>
+                    <li>orange</li>
+                    <li>pourpre</li>
+                    <li>turquoise</li>
+                  </ol>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>      
+      </div>
+    </div>
+    <div class="card text-center align-middle">
+      <div class="card-header">
+        © 2020 | All rights reserved | <span style="font-size: 1.5em"><a href="https://github.com/alainxavier"><i class="fab fa-github-square" ></i></a> <a href="https://twitter.com/mekkaddish"><i class="fab fa-twitter-square"></i></a> <a href="https://www.facebook.com/kalainxavier"><i class="fab fa-facebook-square"></i></a></span>
+      </div>
+    </div>
+  </div>
+    
+    <!--Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--D3-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!--annyang and speechkitt-->
+    <!--<script src="annyang/annyang.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/1.0.0/speechkitt.min.js"></script>
+</body>
+</html>
