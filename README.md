@@ -8,8 +8,8 @@ Cette petite application dessine les figures géométriques planes. Elle fonctio
 
 <u><b>Liste des figures disponibles : </b></u>
 
-cercle, triangle rectangle, triangle isocèle, triangle, triangle équilatéral, quadrilatère, trapèze, parallélogramme, rectangle, losange, carré, pentagone, hexagone, heptagone, octogone, ennéagone. 
+Cercle, triangle rectangle, triangle isocèle, triangle, triangle équilatéral, quadrilatère, trapèze, parallélogramme, rectangle, losange, carré, pentagone, hexagone, heptagone, octogone, ennéagone. 
 
 <u><b>Liste des couleurs disponibles</b></u>: 
 
-noir, gris, rose, vert, cyan, bleu, blanc, rouge, jaune, violet, orangé, orange, pourpre, turquoise.
+Noir, gris, rose, vert, cyan, bleu, blanc, rouge, jaune, violet, orangé, orange, pourpre, turquoise.
